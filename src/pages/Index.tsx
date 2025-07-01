@@ -105,14 +105,14 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: '#EFEEEA' }}>
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <Hospital className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-900">MediCare Hospital</span>
+              <Hospital className="h-8 w-8" style={{ color: '#FE7743' }} />
+              <span className="text-xl font-bold" style={{ color: '#273F4F' }}>MediCare Hospital</span>
             </div>
             <div className="hidden md:flex space-x-8">
               {[
@@ -126,15 +126,23 @@ const Index = () => {
                   onClick={() => scrollToSection(item.id)}
                   className={`px-3 py-2 text-sm font-medium transition-colors ${
                     activeSection === item.id
-                      ? 'text-blue-600 border-b-2 border-blue-600'
-                      : 'text-gray-700 hover:text-blue-600'
+                      ? 'border-b-2'
+                      : 'hover:opacity-80'
                   }`}
+                  style={{
+                    color: activeSection === item.id ? '#FE7743' : '#273F4F',
+                    borderColor: activeSection === item.id ? '#FE7743' : 'transparent'
+                  }}
                 >
                   {item.label}
                 </button>
               ))}
             </div>
-            <Button onClick={() => scrollToSection('contact')} className="bg-blue-600 hover:bg-blue-700">
+            <Button 
+              onClick={() => scrollToSection('contact')} 
+              className="text-white hover:opacity-90"
+              style={{ backgroundColor: '#FE7743', borderColor: '#FE7743' }}
+            >
               Book Appointment
             </Button>
           </div>
@@ -142,15 +150,15 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-16 bg-gradient-to-br from-blue-50 to-white">
+      <section id="home" className="pt-16" style={{ backgroundColor: '#EFEEEA' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight" style={{ color: '#273F4F' }}>
                 Your Health is Our
-                <span className="text-blue-600"> Priority</span>
+                <span style={{ color: '#FE7743' }}> Priority</span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl leading-relaxed" style={{ color: '#273F4F' }}>
                 Providing exceptional healthcare services with compassionate care, 
                 advanced technology, and a team of dedicated medical professionals.
               </p>
@@ -158,7 +166,8 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   onClick={() => scrollToSection('contact')}
-                  className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3"
+                  className="text-lg px-8 py-3 text-white hover:opacity-90"
+                  style={{ backgroundColor: '#FE7743', borderColor: '#FE7743' }}
                 >
                   Schedule Appointment
                 </Button>
@@ -166,7 +175,8 @@ const Index = () => {
                   variant="outline" 
                   size="lg"
                   onClick={() => scrollToSection('specialties')}
-                  className="text-lg px-8 py-3 border-blue-600 text-blue-600 hover:bg-blue-50"
+                  className="text-lg px-8 py-3 bg-white hover:bg-gray-50"
+                  style={{ borderColor: '#273F4F', color: '#273F4F' }}
                 >
                   Our Services
                 </Button>
@@ -180,12 +190,12 @@ const Index = () => {
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-lg">
                 <div className="flex items-center space-x-4">
-                  <div className="bg-blue-100 p-3 rounded-full">
-                    <Users className="h-6 w-6 text-blue-600" />
+                  <div className="p-3 rounded-full" style={{ backgroundColor: '#FE7743' }}>
+                    <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-900">10,000+</p>
-                    <p className="text-gray-600">Patients Served</p>
+                    <p className="text-2xl font-bold" style={{ color: '#273F4F' }}>10,000+</p>
+                    <p style={{ color: '#273F4F' }}>Patients Served</p>
                   </div>
                 </div>
               </div>
@@ -195,26 +205,26 @@ const Index = () => {
       </section>
 
       {/* Specialties Section */}
-      <section id="specialties" className="py-20 bg-gray-50">
+      <section id="specialties" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#273F4F' }}>
               Our Medical Specialties
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto" style={{ color: '#273F4F' }}>
               We offer comprehensive healthcare services across multiple specialties 
               with state-of-the-art facilities and expert medical professionals.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {specialties.map((specialty, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow border-0 shadow-md">
+              <Card key={index} className="hover:shadow-lg transition-shadow border-0 shadow-md bg-white">
                 <CardHeader className="text-center">
                   <div className="text-4xl mb-4">{specialty.icon}</div>
-                  <CardTitle className="text-xl text-gray-900">{specialty.title}</CardTitle>
+                  <CardTitle className="text-xl" style={{ color: '#273F4F' }}>{specialty.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-600 text-center leading-relaxed">
+                  <CardDescription className="text-center leading-relaxed" style={{ color: '#273F4F' }}>
                     {specialty.description}
                   </CardDescription>
                 </CardContent>
@@ -225,36 +235,36 @@ const Index = () => {
       </section>
 
       {/* Specialists Section */}
-      <section id="specialists" className="py-20 bg-white">
+      <section id="specialists" className="py-20" style={{ backgroundColor: '#EFEEEA' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#273F4F' }}>
               Meet Our Specialists
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto" style={{ color: '#273F4F' }}>
               Our team of experienced doctors and medical professionals are dedicated 
               to providing you with the highest quality of care.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {specialists.map((doctor, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow border-0 shadow-md">
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow border-0 shadow-md bg-white">
                 <CardHeader>
                   <img 
                     src={doctor.image}
                     alt={doctor.name}
                     className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                   />
-                  <CardTitle className="text-lg text-gray-900">{doctor.name}</CardTitle>
-                  <CardDescription className="text-blue-600 font-medium">
+                  <CardTitle className="text-lg" style={{ color: '#273F4F' }}>{doctor.name}</CardTitle>
+                  <CardDescription className="font-medium" style={{ color: '#FE7743' }}>
                     {doctor.specialty}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm" style={{ color: '#273F4F' }}>
                     <strong>Experience:</strong> {doctor.experience}
                   </p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm" style={{ color: '#273F4F' }}>
                     <strong>Education:</strong> {doctor.education}
                   </p>
                 </CardContent>
@@ -265,13 +275,13 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-blue-50">
+      <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#273F4F' }}>
               Get in Touch
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto" style={{ color: '#273F4F' }}>
               Ready to schedule an appointment or have questions? 
               Contact us today and we'll be happy to help.
             </p>
@@ -280,79 +290,80 @@ const Index = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div className="flex items-start space-x-4">
-                <div className="bg-blue-600 p-3 rounded-full">
+                <div className="p-3 rounded-full" style={{ backgroundColor: '#FE7743' }}>
                   <Phone className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Phone</h3>
-                  <p className="text-gray-600">Emergency: (555) 123-4567</p>
-                  <p className="text-gray-600">Appointments: (555) 123-4568</p>
+                  <h3 className="text-lg font-semibold" style={{ color: '#273F4F' }}>Phone</h3>
+                  <p style={{ color: '#273F4F' }}>Emergency: (555) 123-4567</p>
+                  <p style={{ color: '#273F4F' }}>Appointments: (555) 123-4568</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="bg-blue-600 p-3 rounded-full">
+                <div className="p-3 rounded-full" style={{ backgroundColor: '#FE7743' }}>
                   <Mail className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Email</h3>
-                  <p className="text-gray-600">info@medicarehospital.com</p>
-                  <p className="text-gray-600">appointments@medicarehospital.com</p>
+                  <h3 className="text-lg font-semibold" style={{ color: '#273F4F' }}>Email</h3>
+                  <p style={{ color: '#273F4F' }}>info@medicarehospital.com</p>
+                  <p style={{ color: '#273F4F' }}>appointments@medicarehospital.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="bg-blue-600 p-3 rounded-full">
+                <div className="p-3 rounded-full" style={{ backgroundColor: '#FE7743' }}>
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Address</h3>
-                  <p className="text-gray-600">123 Healthcare Drive</p>
-                  <p className="text-gray-600">Medical City, MC 12345</p>
+                  <h3 className="text-lg font-semibold" style={{ color: '#273F4F' }}>Address</h3>
+                  <p style={{ color: '#273F4F' }}>123 Healthcare Drive</p>
+                  <p style={{ color: '#273F4F' }}>Medical City, MC 12345</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="bg-blue-600 p-3 rounded-full">
+                <div className="p-3 rounded-full" style={{ backgroundColor: '#FE7743' }}>
                   <Calendar className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Hours</h3>
-                  <p className="text-gray-600">Emergency: 24/7</p>
-                  <p className="text-gray-600">Appointments: Mon-Fri 8AM-6PM</p>
+                  <h3 className="text-lg font-semibold" style={{ color: '#273F4F' }}>Hours</h3>
+                  <p style={{ color: '#273F4F' }}>Emergency: 24/7</p>
+                  <p style={{ color: '#273F4F' }}>Appointments: Mon-Fri 8AM-6PM</p>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <Card className="border-0 shadow-lg">
+            <Card className="border-0 shadow-lg bg-white">
               <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Send us a Message</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-2xl" style={{ color: '#273F4F' }}>Send us a Message</CardTitle>
+                <CardDescription style={{ color: '#273F4F' }}>
                   Fill out the form below and we'll get back to you as soon as possible.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
+                    <Label htmlFor="firstName" style={{ color: '#273F4F' }}>First Name</Label>
                     <Input id="firstName" placeholder="John" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
+                    <Label htmlFor="lastName" style={{ color: '#273F4F' }}>Last Name</Label>
                     <Input id="lastName" placeholder="Doe" />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" style={{ color: '#273F4F' }}>Email</Label>
                   <Input id="email" type="email" placeholder="john.doe@example.com" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
+                  <Label htmlFor="phone" style={{ color: '#273F4F' }}>Phone Number</Label>
                   <Input id="phone" type="tel" placeholder="(555) 123-4567" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="service">Service Needed</Label>
+                  <Label htmlFor="service" style={{ color: '#273F4F' }}>Service Needed</Label>
                   <select 
                     id="service" 
-                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    style={{ color: '#273F4F' }}
                   >
                     <option>General Consultation</option>
                     <option>Cardiology</option>
@@ -364,14 +375,17 @@ const Index = () => {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message" style={{ color: '#273F4F' }}>Message</Label>
                   <Textarea 
                     id="message" 
                     placeholder="Please describe your needs or questions..."
                     rows={4}
                   />
                 </div>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-3">
+                <Button 
+                  className="w-full text-lg py-3 text-white hover:opacity-90"
+                  style={{ backgroundColor: '#FE7743', borderColor: '#FE7743' }}
+                >
                   Send Message
                 </Button>
               </CardContent>
@@ -381,12 +395,12 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="text-white py-12" style={{ backgroundColor: '#273F4F' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <Hospital className="h-8 w-8 text-blue-400" />
+                <Hospital className="h-8 w-8" style={{ color: '#FE7743' }} />
                 <span className="text-xl font-bold">MediCare Hospital</span>
               </div>
               <p className="text-gray-300 mb-4 max-w-md">
@@ -394,13 +408,13 @@ const Index = () => {
                 innovation, and excellence. Your health and well-being are our top priorities.
               </p>
               <div className="flex space-x-4">
-                <div className="bg-blue-600 p-2 rounded">
+                <div className="p-2 rounded" style={{ backgroundColor: '#FE7743' }}>
                   <Phone className="h-4 w-4" />
                 </div>
-                <div className="bg-blue-600 p-2 rounded">
+                <div className="p-2 rounded" style={{ backgroundColor: '#FE7743' }}>
                   <Mail className="h-4 w-4" />
                 </div>
-                <div className="bg-blue-600 p-2 rounded">
+                <div className="p-2 rounded" style={{ backgroundColor: '#FE7743' }}>
                   <MapPin className="h-4 w-4" />
                 </div>
               </div>
@@ -408,10 +422,10 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2 text-gray-300">
-                <li><button onClick={() => scrollToSection('home')} className="hover:text-blue-400">Home</button></li>
-                <li><button onClick={() => scrollToSection('specialties')} className="hover:text-blue-400">Specialties</button></li>
-                <li><button onClick={() => scrollToSection('specialists')} className="hover:text-blue-400">Specialists</button></li>
-                <li><button onClick={() => scrollToSection('contact')} className="hover:text-blue-400">Contact</button></li>
+                <li><button onClick={() => scrollToSection('home')} className="hover:opacity-80" style={{ color: '#FE7743' }}>Home</button></li>
+                <li><button onClick={() => scrollToSection('specialties')} className="hover:opacity-80" style={{ color: '#FE7743' }}>Specialties</button></li>
+                <li><button onClick={() => scrollToSection('specialists')} className="hover:opacity-80" style={{ color: '#FE7743' }}>Specialists</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="hover:opacity-80" style={{ color: '#FE7743' }}>Contact</button></li>
               </ul>
             </div>
             <div>
@@ -430,8 +444,8 @@ const Index = () => {
               © 2024 MediCare Hospital. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-blue-400">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-blue-400">Terms of Service</a>
+              <a href="#" className="text-gray-400 hover:opacity-80" style={{ color: '#FE7743' }}>Privacy Policy</a>
+              <a href="#" className="text-gray-400 hover:opacity-80" style={{ color: '#FE7743' }}>Terms of Service</a>
             </div>
           </div>
         </div>
